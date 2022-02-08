@@ -5,9 +5,9 @@ const router = express.Router();//app 대신 router를 씀
 
 const ctrl = require("./home.ctrl");
 
-router.get("/",ctrl.hello);
+router.get("/",ctrl.output.hello);
 
-router.get("/login",ctrl.login);//api
-
+router.get("/login",ctrl.output.login);//api
+router.post("/login",ctrl.process.login);
 
 module.exports = router;//외부 파일에도 사용할 수 있게 해줌

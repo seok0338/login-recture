@@ -19,12 +19,14 @@ function login(){
     };
     
     //정보를 서버에 전달해줌//api
+    //login html과 연결해주는 역할 login 정보를 ctrl로 전달
     fetch("/login",{
-        method: "POST",//rest api에 관련된거 데이터를 서버에서 받으려면 이게 필요
+        method: "POST",//rest api에 관련된 데이터를 서버에서 받으려면 이게 필요
         headers: {
             "Content-Type":"application/json"//내가 요청하는 데이터가 json 데이터라는 것을 알려줌
         },
-        body: JSON.stringity(req)//srtngify는 req를 문자열로 바꿔주는 역할
-    });
-    
+        body: JSON.stringify(req)//srtngify는 req를 문자열로 바꿔주는 역할
+    }).then((res) => res.json())
+      .then(console.log)
+    //then으로 정보를 한번가져오고 then을 한번더써서 promis
 }
