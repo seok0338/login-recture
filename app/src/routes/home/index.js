@@ -7,6 +7,7 @@ const ctrl = require("./home.ctrl");
 
 router.get("/",ctrl.hello);
 
-router.get("/login",ctrl.login);
+router.get("/login",ctrl.login);//api
+
 
 module.exports = router;//외부 파일에도 사용할 수 있게 해줌
