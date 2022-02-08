@@ -2,7 +2,7 @@
 
 //모듈
 const express = require("express");
-const app = express();//npm으로 설치
+const app = express();//npm으로 express설치
 
 
 //라우팅
