@@ -19,9 +19,13 @@ const process = {
     login: (req,res) => {
         const user = new User(req.body);//여기에서 받은 req를 user.js에있는 body로 넘겨준다
         const response = user.login();
-        console.log(response);
         return res.json(response)
     },
+    register: (req, res)=> {
+        const user = new User(req.body);//여기에서 받은 req를 user.js에있는 body로 넘겨준다
+        const response = user.register();
+        return res.json(response)
+    }
 }
 
 

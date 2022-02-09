@@ -16,11 +16,15 @@ registerBtn.addEventListener("click",register);//로그인 버튼이 click이라
 
 function register(){
     //value는 웹사이트에서 쓴 값을 가져오는 역할을 해줌
+    if (!id.value) return alert("아이디를 입력해 주세요");
+    if (!name.value) return alert("이름을 입력해 주세요");
+    if (psword.value !== conformPsword.value) return alert("비밀번호가 일치하지 않습니다.");
+    
+    
     const req = {
         id : id.value,
         name: name.value,
         psword : psword.value,
-        conformPsword: conformPsword.value,
     };
     
     //정보를 서버에 전달해줌//api
