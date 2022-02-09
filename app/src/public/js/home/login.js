@@ -27,6 +27,16 @@ function login(){
         },
         body: JSON.stringify(req)//srtngify는 req를 문자열로 바꿔주는 역할
     }).then((res) => res.json())
-      .then(console.log)
+      .then((res) => {
+        if(res.success){
+            location.href = "/";//home.ctrl의 res.success가 true이면 "/"링크로 보내줌
+        }else{
+            alert(res.msg)//서버에서 전달한 매세지를 띄우는것 alert은 알리다라는 뜻
+
+        }
+      })
     //then으로 정보를 한번가져오고 then을 한번더써서 promis
+    .catch((err) => {
+        console.error(new Error("로그인 중 레어 발생"));
+    });
 }
