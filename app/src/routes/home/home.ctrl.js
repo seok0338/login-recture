@@ -1,8 +1,6 @@
 "use strict";
+const User = require("../../models/User");
 //아이디 정보를 저장
-
-const UserStorage = require("../../models/UserStorage")
-
 const output = {
     hello: (req,res) => {
         res.render("home/index")
@@ -16,20 +14,10 @@ const output = {
 
 const process = {
     login: (req,res) => {
-        const id = req.body.id,
-            psword = req.body.psword;
-        const users = UserStorage.getUsers("id", "psword");
-        const response = {};
-        if(users.id.includes(id)){//users의 id가 프론트에 있는 id와 같다면
-            const idx = users.id.indexOf(id);// users에 있는 id의 인덱스를 idx에저장
-            if(users.psword[idx] === psword) {//users의 패스워드가 프론트에 psword와 같은지
-                response.success = true;
-                return res.json(response)//로그인이 성공하면 success: ture라는 걸 json으로 응답해준다
-            }
-        }
-        response.success = false;
-        response.msg = "로그인에 실퍄하였습니다."//로그인에 실패
-        return res.json(response);
+        const user = new User(req.body);//여기에서 받은 req를 user.js에있는 body로 넘겨준다
+        const response = user.login();
+        console.log(response);
+        return res.json(response)
     },
 }
 

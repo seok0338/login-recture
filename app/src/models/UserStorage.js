@@ -19,7 +19,22 @@ class UserStorage{
             return newUsers;//users의 field가 newUsers의 filed에 들어가고 그게 계속 반복
         },{})//이 오브젝트가 newUsers에 들어간다;
         return newUsers;
+
+
     }
+
+    static getUserInfo(id){
+        const users = this.#users;
+        const idx = users.id.indexOf(id)
+        const usersKeys = Object.keys(users)// => [id,psword,name]
+        const userInfo = usersKeys.reduce((newUser,info) => {
+            newUser[info] = users[info][idx];
+            return newUser;
+        },{});
+
+        return userInfo;
+    }
+    
 }
 
 module.exports = UserStorage;
