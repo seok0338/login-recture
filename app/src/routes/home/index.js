@@ -11,6 +11,6 @@ router.get("/register",ctrl.output.register);
 
 
 router.post("/login",ctrl.process.login);
-router.post("/register",ctrl.process.register);
+router.post("/register",ctrl.process.register);//1.정보가 들어오면 ctrl의 register함수로 이동한다.
 
 module.exports = router;//외부 파일에도 사용할 수 있게 해줌

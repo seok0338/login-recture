@@ -16,14 +16,14 @@ const output = {
 
 
 const process = {
-    login: (req,res) => {
+    login: async (req,res) => {
         const user = new User(req.body);//여기에서 받은 req를 user.js에있는 body로 넘겨준다
-        const response = user.login();
+        const response = await user.login();
         return res.json(response)
     },
-    register: (req, res)=> {
+    register: async (req, res)=> {
         const user = new User(req.body);//여기에서 받은 req를 user.js에있는 body로 넘겨준다
-        const response = user.register();
+        const response = await user.register();//2.index에서 받은 정보를 여기서 처리 그리고 user.js로간다
         return res.json(response)
     }
 }

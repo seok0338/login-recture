@@ -29,7 +29,7 @@ function register(){
     
     //정보를 서버에 전달해줌//api
     //register html과 연결해주는 역할 register 정보를 ctrl로 전달
-    fetch("/register",{
+    fetch("/register",{//fetch는 promises를 반환해주는 역할을 한다.
         method: "POST",//rest api에 관련된 데이터를 서버에서 받으려면 이게 필요
         headers: {
             "Content-Type":"application/json"//내가 요청하는 데이터가 json 데이터라는 것을 알려줌
