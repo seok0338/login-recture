@@ -10,7 +10,7 @@ router.get("/login",ctrl.output.login);//api
 router.get("/register",ctrl.output.register);
 
 
-router.post("/login",ctrl.process.login);
+router.post("/login",ctrl.process.login);//1. 로그인 버튼을 누르는 순간 로그인 메소드로 post요청이가게된다. 그리고crlt에 있는 login 함수가 실행이된다. 
 router.post("/register",ctrl.process.register);//1.정보가 들어오면 ctrl의 register함수로 이동한다.
 
 module.exports = router;//외부 파일에도 사용할 수 있게 해줌

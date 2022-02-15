@@ -1,7 +1,13 @@
+//메인 파일겸 각종 설정들
+//src는 mvc패턴으로 구성을 했다.
 "use strict";//자바스크립트 만들때 항상 쓰기
 
 //모듈
 const express = require("express");
+const bodyParser = require("body-parser");
+const dotenv = require("dotenv");//이거를 사용하게되면 mac이든 window든 동일하게 환경변수를 등록하고 가져올수 있게 되낟
+dotenv.config();//config라는 메소드를 통해 환경변수(dotenv) 모듈이 동작을 하게된다
+
 const app = express();//npm으로 express설치
 
 

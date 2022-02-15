@@ -18,7 +18,7 @@ const output = {
 const process = {
     login: async (req,res) => {
         const user = new User(req.body);//여기에서 받은 req를 user.js에있는 body로 넘겨준다
-        const response = await user.login();
+        const response = await user.login();//2.여기 함수가 실행이되고 user안에있는 로그인 함수가 실행이 된다.
         return res.json(response)
     },
     register: async (req, res)=> {

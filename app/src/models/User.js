@@ -9,14 +9,20 @@ class User {
 
     async login(){//async는 await을 사용해주기위해 씀
         const client = this.body
-        const {id,psword} = await UserStorage.getUserInfo(client.id);//await은 .then대신에 쓰는거
-        if(id){
-            if (id === client.id && psword === client.psword){
-                return {success: true};
+        try{
+            const user = await UserStorage.getUserInfo(client.id);
+            ////3.userstorage안에있는 getuserinfo(유저정보)를 불러온다.
+            //await은 .then대신에 쓰는거
+            if(user){
+                if (user.id === client.id && user.psword === client.psword){
+                    return {success: true};
+                }
+                return {success: false,msg: "비밀번호가 틀렸습니다."}
             }
-            return {success: false,msg: "비밀번호가 틀렸습니다."}
+            return {success: false, msg: "존재하지 않는 아이디입니다."}
+        }catch(err){
+            return{success:false,msg:err};
         }
-        return {success: false, msg: "존재하지 않는 아이디입니다."}
     }
 
     async register(){//3. 여기서 userstorage의 save메소드 실행
