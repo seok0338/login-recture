@@ -21,7 +21,7 @@ class User {
             }
             return {success: false, msg: "존재하지 않는 아이디입니다."}
         }catch(err){
-            return{success:false,msg:err};
+            return{success:false,err};
         }
     }
 
@@ -32,7 +32,7 @@ class User {
             //중복된 아이디 입니다 라는 문장을 response에 넘
             return response
         } catch(err){
-            return {success:false, msg:err};
+            return {success:false, err};
         }
     }
 

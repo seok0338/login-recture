@@ -15,7 +15,7 @@ class UserStorage{
             db.query(query,[id],(err, data)=>{//SELECT * FROM users:db에서 정보를 가저오는역할 
                 //WHERE id = ?"[id]: 내가 정확한 아이디를 적으면 그에맞는 아이디에 관한 정보를 가져오는 역할 
                 if (err) reject(`${err}`);//실패하면 reject를 던지고
-                resolve(data[0]);//성공하면 resolve를 던진다.
+                else resolve(data[0]);//성공하면 resolve를 던진다.
                 //0번지만 반환해야한다.
             });
         })
@@ -30,7 +30,7 @@ class UserStorage{
                 [userInfo.id, userInfo.name, userInfo.psword],
                 (err)=>{
                 if (err) reject(`${err}`);
-                resolve({success: true});
+                else resolve({success: true});
             });
         })
     }

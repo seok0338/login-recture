@@ -11,6 +11,8 @@ loginBtn.addEventListener("click",login);//로그인 버튼이 click이라는 �
 
 
 function login(){
+    if (!id.value) return alert("아이디를 입력해 주세요");
+    if (!psword.value) return alert("비밀번호를 입력해 주세요.");
     //value는 웹사이트에서 쓴 값을 가져오는 역할을 해줌
     const req = {
         id : id.value,
@@ -30,6 +32,7 @@ function login(){
         if(res.success){
             location.href = "/";//home.ctrl의 res.success가 true이면 "/"링크로 보내줌
         }else{
+            if (res.err) return alert(res,err);
             alert(res.msg)//서버에서 전달한 매세지를 띄우는것 alert은 알리다라는 뜻
 
         }
